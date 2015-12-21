@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+var glob = require('glob');
+var fs = require('fs');
+var base = process.argv[2];
+var buffer = new Buffer(100);
+var files = glob.sync(base + '/**/*.js');
+
+var flow = [],
+  noflow = [];
+
+files.forEach(function(file) {
+  var fd = fs.openSync(file, 'r');
+  fs.readSync(fd, buffer, 0, 100);
+  if (buffer.toString().match(/\/\*\s*@flow\s*\*\//g)) {
+    flow.push(file);
+  } else {
+    noflow.push(file);
+  }
+});
+
+console.log('flow files %s', flow.length);
+console.log('non flow files %s', noflow.length);
+console.log('------------------');
+
+process.stdout.write(noflow.join('\n') + '\n');

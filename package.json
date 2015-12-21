@@ -1,0 +1,25 @@
+{
+  "name": "are-we-flow-yet",
+  "version": "1.0.0",
+  "description": "determine what percentage of a project is flow annotated",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "./are-we-flow-yet": "are-we-flow-yet"
+  },
+  "keywords": [
+    "flow",
+    "yet"
+  ],
+  "author": "Tom MacWright",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^6.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tmcw/are-we-flow-yet.git"
+  }
+}
