@@ -1,5 +1,7 @@
 # are we flow yet
 
+[![Circle CI](https://circleci.com/gh/tmcw/are-we-flow-yet/tree/master.svg?style=svg)](https://circleci.com/gh/tmcw/are-we-flow-yet/tree/master)
+
 A CLI tool that scans a source directory and gives
 statistics and a big list of files that are and
 are not flow-annotated.
