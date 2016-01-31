@@ -21,6 +21,12 @@ files.forEach(function(file) {
 
 console.log('flow files %s', flow.length);
 console.log('non flow files %s', noflow.length);
-console.log('------------------');
+if (noflow.length) {
+  console.log('------------------');
+}
 
 process.stdout.write(noflow.join('\n') + '\n');
+
+if (noflow.length) {
+  process.exit(1);
+}

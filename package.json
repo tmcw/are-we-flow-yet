@@ -4,7 +4,7 @@
   "description": "determine what percentage of a project is flow annotated",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap test.js"
   },
   "bin": {
     "./are-we-flow-yet": "are-we-flow-yet"
@@ -16,7 +16,8 @@
   "author": "Tom MacWright",
   "license": "ISC",
   "dependencies": {
-    "glob": "^6.0.1"
+    "glob": "^6.0.1",
+    "tap": "^5.4.1"
   },
   "repository": {
     "type": "git",
