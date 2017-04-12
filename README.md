@@ -1,6 +1,7 @@
 # are we flow yet
 
-[![Circle CI](https://circleci.com/gh/tmcw/are-we-flow-yet/tree/master.svg?style=svg)](https://circleci.com/gh/tmcw/are-we-flow-yet/tree/master)
+[![Circle CI](https://circleci.com/gh/tmcw/are-we-flow-yet/tree/master.svg?style=shield)](https://circleci.com/gh/tmcw/are-we-flow-yet/tree/master)
+[![Greenkeeper badge](https://badges.greenkeeper.io/tmcw/are-we-flow-yet.svg)](https://greenkeeper.io/)
 
 A CLI tool that scans a source directory and gives
 statistics and a big list of files that are and

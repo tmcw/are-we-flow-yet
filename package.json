@@ -16,8 +16,8 @@
   "author": "Tom MacWright",
   "license": "ISC",
   "dependencies": {
-    "glob": "^6.0.1",
-    "tap": "^5.4.1"
+    "glob": "^7.1.1",
+    "tap": "^10.3.2"
   },
   "repository": {
     "type": "git",
