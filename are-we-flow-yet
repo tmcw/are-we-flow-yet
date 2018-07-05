@@ -6,13 +6,25 @@ var base = process.argv[2];
 var buffer = new Buffer(100);
 var files = glob.sync(base + '/**/*.js');
 
+var FLOW_REGEXPS = [
+  /\/\*\s*@flow\s*\*\//g,
+  /\/\/\s+@flow\s+/g,
+  /\/\/\s+@flow$/mg
+];
+
 var flow = [],
   noflow = [];
+
+function hasFlowPragma(string) {
+  return FLOW_REGEXPS.some(function(regExp) {
+    return regExp.test(string);
+  });
+}
 
 files.forEach(function(file) {
   var fd = fs.openSync(file, 'r');
   fs.readSync(fd, buffer, 0, 100);
-  if (buffer.toString().match(/\/\*\s*@flow\s*\*\//g)) {
+  if (hasFlowPragma(buffer.toString())) {
     flow.push(file);
   } else {
     noflow.push(file);

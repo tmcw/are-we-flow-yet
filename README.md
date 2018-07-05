@@ -8,7 +8,8 @@ statistics and a big list of files that are and
 are not flow-annotated.
 
 This works by scanning the first 100 characters of
-each file and finding `/* @flow */` comments.
+each file and finding `/* @flow */` or `// @flow` 
+comments.
 
 ## install
 
