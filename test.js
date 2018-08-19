@@ -26,3 +26,17 @@ non flow files 0
     t.end();
   });
 });
+
+test('are-we-flow-yet - one-line', function(t) {
+  exec('./are-we-flow-yet test/one-line', function(err, stdout, stderr) {
+    var out = (function() {/*
+flow files 2
+non flow files 1
+------------------
+test/one-line/five.js
+*/}).toString().split('\n').slice(1, -1).join('\n');
+    t.equal(stdout.trim(), out);
+    t.equal(err.code, 1);
+    t.end();
+  });
+});
