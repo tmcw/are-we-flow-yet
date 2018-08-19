@@ -4,7 +4,8 @@
   "description": "determine what percentage of a project is flow annotated",
   "main": "index.js",
   "scripts": {
-    "test": "tap test.js"
+    "test": "tap test.js",
+    "release": "standard-version"
   },
   "bin": {
     "./are-we-flow-yet": "are-we-flow-yet"
@@ -22,5 +23,8 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:tmcw/are-we-flow-yet.git"
+  },
+  "devDependencies": {
+    "standard-version": "^4.4.0"
   }
 }
