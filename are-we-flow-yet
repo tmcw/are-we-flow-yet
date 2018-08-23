@@ -1,28 +1,26 @@
 #!/usr/bin/env node
 
-var glob = require('glob');
-var fs = require('fs');
-var base = process.argv[2];
-var buffer = new Buffer(100);
-var files = glob.sync(base + '/**/*.js');
+const glob = require("glob");
+const fs = require("fs");
+const base = process.argv[2];
+const buffer = new Buffer(100);
 
-var FLOW_REGEXPS = [
+const files = glob.sync(base + "/**/*.js");
+const FLOW_REGEXPS = [
   /\/\*\s*@flow\s*\*\//g,
   /\/\/\s+@flow\s+/g,
-  /\/\/\s+@flow$/mg
+  /\/\/\s+@flow$/gm
 ];
 
-var flow = [],
-  noflow = [];
+const flow = [];
+const noflow = [];
 
 function hasFlowPragma(string) {
-  return FLOW_REGEXPS.some(function(regExp) {
-    return regExp.test(string);
-  });
+  return FLOW_REGEXPS.some(regExp => regExp.test(string));
 }
 
-files.forEach(function(file) {
-  var fd = fs.openSync(file, 'r');
+files.forEach(file => {
+  const fd = fs.openSync(file, "r");
   fs.readSync(fd, buffer, 0, 100);
   if (hasFlowPragma(buffer.toString())) {
     flow.push(file);
@@ -31,13 +29,13 @@ files.forEach(function(file) {
   }
 });
 
-console.log('flow files %s', flow.length);
-console.log('non flow files %s', noflow.length);
+console.log("flow files %s", flow.length);
+console.log("non flow files %s", noflow.length);
 if (noflow.length) {
-  console.log('------------------');
+  console.log("------------------");
 }
 
-process.stdout.write(noflow.join('\n') + '\n');
+process.stdout.write(noflow.join("\n") + "\n");
 
 if (noflow.length) {
   process.exit(1);

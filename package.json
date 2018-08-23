@@ -25,6 +25,7 @@
     "url": "git@github.com:tmcw/are-we-flow-yet.git"
   },
   "devDependencies": {
+    "prettier": "^1.14.2",
     "standard-version": "^4.4.0"
   }
 }
