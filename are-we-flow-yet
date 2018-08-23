@@ -6,17 +6,16 @@ const base = process.argv[2];
 const buffer = new Buffer(100);
 
 const files = glob.sync(base + "/**/*.js");
-const FLOW_REGEXPS = [
-  /\/\*\s*@flow\s*\*\//g,
-  /\/\/\s+@flow\s+/g,
-  /\/\/\s+@flow$/gm
-];
 
 const flow = [];
 const noflow = [];
 
 function hasFlowPragma(string) {
-  return FLOW_REGEXPS.some(regExp => regExp.test(string));
+  return (
+    /\/\*\s*@flow\s*\*\//g.test(string) ||
+    /\/\/\s+@flow\s+/g.test(string) ||
+    /\/\/\s+@flow$/gm.test(string)
+  );
 }
 
 files.forEach(file => {
